@@ -1,7 +1,6 @@
 # Sorting Algorithms
-========
 
-$Sorting Algorithms in C for general use.
+Sorting Algorithms in C for general use.
 
 Features
 --------
@@ -17,3 +16,5 @@ Support
 
 License
 -------
+
+The project is licensed under the MIT license.
