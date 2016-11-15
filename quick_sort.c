@@ -21,7 +21,7 @@ int random_pivot(int *array, int p, int r)
 
   swap(array, r, i);
 
-  return partition(array, p, r);
+  return first_pivot_partition(array, p, r);
 }
 
 int median(int array[])
@@ -51,7 +51,7 @@ int median_pivot(int *array, int p, int r)
 
   swap(array, r, median(m));
 
-  return partition(array, p, r);
+  return first_pivot_partition(array, p, r);
 }
 
 int middle_pivot(int *array, int p, int r)
@@ -62,10 +62,10 @@ int middle_pivot(int *array, int p, int r)
 
   swap(array, p, i);
 
-  return partition(array, p, r);
+  return first_pivot_partition(array, p, r);
 }
 
-int partition(int *array, int p, int r)
+int last_pivot_partition(int *array, int p, int r)
 {
   int x, i, j;
 
@@ -85,6 +85,26 @@ int partition(int *array, int p, int r)
   return i + 1;
 }
 
+int first_pivot_partition(int *array, int p, int r)
+{
+  int x, i, j;
+
+  x = array[p];
+  i = p;
+
+  for(j = p + 1; j <= r; j++)
+  {
+    if (array[j] <= x)
+    {
+      i = i + 1;
+      swap(array, i, j);
+    }
+  }
+  swap(array, i, p);
+
+  return i;
+}
+
 void quick_sort(int *array, int p, int r)
 {
   if (p < r)
@@ -95,8 +115,9 @@ void quick_sort(int *array, int p, int r)
     //q = random_partition(array, p, r);
     //q = median_pivot(array, p, r);
     //q = middle_partition(array, p, r);
+    //q = last_pivot_partition(array, p, r);
 
-    q = partition(array, p, r);
+    q = first_pivot_partition(array, p, r);
     quick_sort(array, p, q - 1);
     quick_sort(array, q + 1, r);
   }

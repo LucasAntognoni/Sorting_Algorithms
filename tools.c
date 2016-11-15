@@ -6,7 +6,7 @@
 
 int *create_vector(int size)
 {
-  int *v = malloc (sizeof(int) * size);
+  int *v = (int*) malloc (sizeof(int) * size);
 
   return v;
 }
@@ -23,12 +23,6 @@ void inicialize_vector(int *vector, int size)
   }
 }
 
-void destroy_vector(int *vector)
-{
-  free(vector);
-  vector = NULL;
-}
-
 void print_vector(int *vector, int size)
 {
   int i = 0;
@@ -38,4 +32,10 @@ void print_vector(int *vector, int size)
     printf("%d ", vector[i]);
   }
   printf("\n");
+}
+
+void destroy_vector(int *vector)
+{
+  free(vector);
+  vector = NULL;
 }

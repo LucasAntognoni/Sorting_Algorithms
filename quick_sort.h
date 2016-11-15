@@ -11,7 +11,9 @@ int median_pivot(int *array, int p, int r);
 
 int middle_pivot(int *array, int p, int r);
 
-int partition(int *array, int p, int r);
+int last_pivot_partition(int *array, int p, int r);
+
+int first_pivot_partition(int *array, int p, int r);
 
 void quick_sort(int *array, int p, int r);
 
