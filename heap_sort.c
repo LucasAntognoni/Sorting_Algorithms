@@ -10,7 +10,7 @@ HEAP *create_heap(int size, int *array)
 
   heap = (HEAP*) malloc (sizeof(HEAP));
   heap->array = array;
-  heap->size = size;
+  heap->size = size - 1;
 
   return heap;
 }
